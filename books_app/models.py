@@ -43,6 +43,18 @@ class Author(db.Model):
     def __repr__(self):
         return f'<Author: {self.name}>'
 
+class User(db.Model):
+    """User model. """
+    id= db.Column(db.Integer, Primary_key=True)
+    username = db.Column(db.String(80), nullable=False)
+    favorite_books = db.relationship('Book', back_populates='user') 
+
+    def __str__(self):
+        return f'<User: {self.name}>'
+
+    def __repr__(self):
+        return f'<User: {self.name}>'
+
 class Genre(db.Model):
     """Genre model."""
     id = db.Column(db.Integer, primary_key=True)

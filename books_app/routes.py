@@ -16,7 +16,8 @@ main = Blueprint("main", __name__)
 @main.route('/')
 def homepage():
     # TODO: Make a query for all instances of 'User' and send to the template
-    return render_template('home.html')
+    all_users = User.query.all()
+    return render_template('home.html', all_users=all_users)
 
 @main.route('/profile/<username>')
 def profile(username):
